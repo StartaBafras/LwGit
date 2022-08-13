@@ -10,7 +10,7 @@
             "name": "(gdb) Başlat",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/home/beyhan/Belgeler/C/LwGit/lwgit",
+            "program": "${fileDirname}/lwgit",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
