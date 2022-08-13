@@ -1,10 +1,24 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+
+
+int cmd_init(char args[]);
 
 int main(int argc, char **argv)
 {
-    int a = 2;
-    a = strcmp("add",argv[1]);
-    printf("%d",a);
+    
+    if(!strcmp("init",argv[1]))
+    {
+        cmd_init(argv);
+    }
+
+
     return 0;
+}
+
+int cmd_init(char args[])
+{
+    FILE *file = NULL;
+
 }
