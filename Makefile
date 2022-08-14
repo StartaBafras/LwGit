@@ -15,3 +15,4 @@ lwgit: main.o
 clean:
 	rm -f test *.o
 	rm -f *.s
+	rm lwgit
