@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
-
+#define FOLDER_NAME_LENGHT 7
 
 int cmd_init(char **args);
 
@@ -27,7 +27,8 @@ int cmd_init(char **args)
     short int error = 0;
     short int PathLengt = 128;
     short int counter = 0;
-    char folder_name[7] = "/.gitt";
+    char folder_name[FOLDER_NAME_LENGHT] = "/.gitt";
+    char other_dir[5][12] = {"/branches","/objects","/refs","/refs/tags","/refs/heads"};
 
 
 
@@ -46,7 +47,7 @@ int cmd_init(char **args)
 
         if(counter < 4)
         {
-            location = (char*) realloc(location,PathLengt+=7);
+            location = (char*) realloc(location,PathLengt+=FOLDER_NAME_LENGHT);
             getcwd(location, sizeof(location));
         }
         else break;
@@ -55,9 +56,25 @@ int cmd_init(char **args)
 
 
     strcpy(location+PathLengt-counter,folder_name);
-
     error = mkdir(location, 0777);
 
+    strcpy(location+PathLengt-counter+FOLDER_NAME_LENGHT-1,other_dir[0]);
+    error = mkdir(location, 0777);
+
+    strcpy(location+PathLengt-counter+FOLDER_NAME_LENGHT-1,other_dir[1]);
+    error = mkdir(location, 0777);
+
+    strcpy(location+PathLengt-counter+FOLDER_NAME_LENGHT-1,other_dir[2]);
+    error = mkdir(location, 0777);
+
+    strcpy(location+PathLengt-counter+FOLDER_NAME_LENGHT-1,other_dir[3]);
+    error = mkdir(location, 0777);
+
+    strcpy(location+PathLengt-counter+FOLDER_NAME_LENGHT-1,other_dir[4]);
+    error = mkdir(location, 0777);
+
+
+    free(location);
     return error;
 
 }
