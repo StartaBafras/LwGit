@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.ipynb": "jupyter",
+        "unistd.h": "c"
+    }
+}
