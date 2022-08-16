@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <sys/stat.h>
 
+#include <sys/socket.h>
 #define FOLDER_NAME_LENGHT 7
 
 int cmd_init(char **args);
@@ -75,6 +76,18 @@ int cmd_init(char **args)
 
 
     free(location);
+
+
+    FILE *file =  fopen(".gitt/description","w");
+    fprintf(file,"Unnamed repository; edit this file 'description' to name the repository.\n");
+    fclose(file);
+
+    FILE *file =  fopen(".gitt/HEAD","w");
+    fprintf(file,"ref: refs/heads/master\n");
+    fclose(file);
+
+
+
     return error;
 
 }
